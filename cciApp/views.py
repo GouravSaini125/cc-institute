@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from accounts.models import Testimonial
+import urllib
 
 
 def index(request):
@@ -51,6 +52,7 @@ def about(request):
 
 
 def category(request, name):
+    name = urllib.parse.unquote(name)
     courses = Course.objects.all().filter(category=name)
     return render(request, 'course.html', {'courses': courses})
 
