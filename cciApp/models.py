@@ -31,7 +31,7 @@ class Course(models.Model):
 
 class Blog(models.Model):
     image = models.FileField(upload_to='blog/')
-    text = models.TextField()
+    text = models.TextField(help_text="Use HTML Tags to format your Blog.")
     heading = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
